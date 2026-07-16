@@ -11,6 +11,14 @@ This project presents an executive-style Power BI dashboard for monitoring autom
 
 
 ---
+## Tech Stack
+
+- Microsoft Power BI
+- DAX
+- Power Query
+- Data Modeling
+
+---
 
 ## Dashboard Preview
 
