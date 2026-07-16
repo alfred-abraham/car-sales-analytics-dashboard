@@ -86,7 +86,7 @@ The dataset and Power BI project file are not included in this repository becaus
 
 --- 
 ## License
-Everything posted here is covered under the MIT license but the external dataset and tutorial used remain the property of their respective owners. 
+Everything posted here is covered under the MIT license but the external dataset and the tutorial remain the property of their respective owners. 
 
 ---
 
