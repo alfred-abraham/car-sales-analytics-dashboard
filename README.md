@@ -79,7 +79,7 @@ This project presents an executive-style Power BI dashboard for monitoring autom
 ---
 ## Key Business Insights
 - Total sales for the most recent year of the dataset was approximately $371.2 million, about 24% higher than for the previous year
-- Total cars sold for the most recent year of the dataset was approximately 13.3 million, about 25% higher than for the previous year
+- Total cars sold for the most recent year of the dataset was approximately 13.3 thousand, about 25% higher than for the previous year
 - Weekly sales generally increased as the year went on, peaking at approximately $14.6 million during the 36th week
 - Austin is the region with the most car sales with 2296 cars sold
 - A plurality of sales, approximately 47%, come from pale white cars
