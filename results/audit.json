@@ -1,0 +1,39 @@
+{
+  "rows": 23906,
+  "date_min": "2022-01-02",
+  "date_max": "2023-12-31",
+  "missing_values": {
+    "Customer Name": 1
+  },
+  "referenced_tables_and_fields": [
+    "Average Price Difference",
+    "Average Price Difference Color",
+    "Body Style",
+    "Calendar Table",
+    "Cars Sold Difference",
+    "Color",
+    "Company",
+    "Dealer_Name",
+    "Dealer_Region",
+    "Engine",
+    "MTD Average Price KPI",
+    "MTD Cars Sold KPI",
+    "MTD Total Sales KPI",
+    "Model",
+    "Price ($)",
+    "Sales Difference",
+    "Sales Difference Color",
+    "Week",
+    "YOY Average Price Difference",
+    "YOY Cars Sold",
+    "YOY Sales Growth",
+    "YTD Average Price",
+    "YTD Cars Sold",
+    "YTD Total Sales",
+    "Year",
+    "car_data"
+  ],
+  "source": "Car Sales..xlsx",
+  "report": "Cars Sales Dashboard.pbix",
+  "measure_formula_status": "Reference formulas reconstructed for documented KPIs; not an export of compressed PBIX formulas."
+}

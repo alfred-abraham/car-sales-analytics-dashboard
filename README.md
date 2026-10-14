@@ -1,100 +1,47 @@
-# 🚗 Car Sales Dashboard
+# Car sales analytics dashboard
 
-![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
-![DAX](https://img.shields.io/badge/DAX-Time%20Intelligence-blue)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+Power BI dashboard with YTD/MTD sales, unit counts, weighted average selling price, regional views and vehicle/dealer filters.
 
+![Dashboard preview](Car-Sales-Dashboard.png)
 
----
-## Project Overview
-This project presents an executive-style Power BI dashboard for monitoring automotive sales performance. It combines KPI reporting, trend analysis, geographic visualization, and interactive filtering to support business decision-making.
+## Files and source
+- [Power BI report](Cars%20Sales%20Dashboard.pbix)
+- [Excel source](Car%20Sales..xlsx)
+- [Audited KPI reference DAX](dax/Measures.dax) and [calendar table DAX](dax/Calendar.dax)
+- [Independent source audit](audit_dashboard.py) and [measured results](results/)
 
+The data and report began as a learning exercise using [this tutorial](https://www.youtube.com/watch?v=XnPo5Ft7RzQ). The report is tutorial-based; the independent source audit, explicit KPI definitions, reproducible result tables and refresh documentation were added in this repository. No independent authorship of the tutorial design is claimed.
 
----
-## Tech Stack
+The source contains 23,906 transactions dated January 2, 2022 through December 31, 2023. Car_id is unique and populated. One customer name is missing; this does not change sales/unit KPIs. The workbook filename is preserved so the existing report's source reference remains recognizable.
 
-- Microsoft Power BI
-- DAX
-- Power Query
-- Data Modeling
+## KPI verification
+| Calendar year | Sales | Cars sold | Average price |
+| --- | ---: | ---: | ---: |
+| 2022 | $300,340,345 | 10,645 | $28,214.22 |
+| 2023 | $371,185,120 | 13,261 | $27,990.73 |
 
----
+2023 sales grew 23.59%; cars sold grew 24.57%. Austin led 2023 unit sales with 2,296 cars. Using Sunday-start WEEKNUM(Date,1), week 36 had $14,854,928 in sales. Week numbering must be consistent when comparing results. These are full-calendar-year source totals, not a claim about today's YTD.
 
-## Dashboard Preview
+Average price is total sales divided by cars sold, so grouped averages are weighted by transactions. YTD/MTD follow the date context selected in the report. YoY measures compare the corresponding prior-year period and return blank where the prior-year denominator is unavailable. Filter dates through the calendar rather than treating missing previous-year data as zero.
 
-![Dashboard](Car-Sales-Dashboard.png)
+## Model and DAX
+The report visuals reference car_data and Calendar Table, plus the KPI names recorded in [results/audit.json](results/audit.json). A reproducible reference model uses a single-direction one-to-many relationship from Calendar Table[Date] to car_data[Date]. Mark Calendar Table as a date table and sort Month by Month Number. Preserve date-only values and make the relationship active.
 
+The DAX files provide reconstructed, auditable formulas for these KPI definitions. The PBIX model is compressed; its exact internal formulas and active relationship settings were not exported or verified here. Compare the reference DAX with the existing measures in Power BI Desktop before replacing them. The independent audit validates the source totals, not the Power BI engine's filter behavior.
 
----
-## Dashboard Objectives
-- Monitor Year-to-Date (YTD) sales performance
-- Compare Month-to-Date (MTD) and YTD metrics
-- Analyze weekly sales trends
-- Analyze sales performance by body style and color
-- Evaluate dealer performance by region
-- Explore sales interactively using slicers
+## Refresh and validate
+1. Open the PBIX in Power BI Desktop.
+2. In Transform data / Data source settings, change the Excel source path to your local Car Sales..xlsx. Retain the worksheet/table used by car_data and check column types.
+3. Confirm Date is Date and Price ($) is numeric; trim trailing whitespace in column labels if rebuilding the query.
+4. Check the calendar relationship, mark the date table, then refresh.
+5. Select the complete 2023 calendar year and compare sales, unit count and average price with the audited totals above. Test YTD/MTD and prior-year comparisons at a partial-year cutoff. Clear other slicers for a full-source comparison.
 
---- 
-## Dashboard Features
-### KPI Cards
-- YTD Total Sales
-- YTD Average Price
-- YTD Cars Sold
-- MTD Total Sales
-- MTD Average Price
-- MTD Cars Sold
-### Visualizations
-- Weekly Sales Trend
-- Sales by Body Style
-- Sales by Color
-- Dealer Car Sales by Region
-- Manufacturer Sales Performance Table
-### Interactive Filters
-- Engine
-- Body Style
-- Dealer Name
-- Year
-- Model
+Python 3.12 independent audit:
+```bash
+python -m pip install -r requirements.txt
+python audit_dashboard.py
+```
+The audit also exports annual metrics, regional counts, weekly sales and color revenue shares. These source tables support reproducibility without requiring viewers to download/open Power BI.
 
----
-## Skills Demonstrated
-- Power BI Dashboard Design
-- DAX Time Intelligence
-- Data Modeling
-- Calendar Tables
-- KPI Development
-- Interactive Reporting
-- Business Intelligence
-- Data Visualization
-
----
-## DAX Concepts Used
-- TOTALYTD()
-- TOTALMTD()
-- SAMEPERIODLASTYEAR()
-- Condtional Formatting
-- Time Intelligence
-- Calendar Table
-
----
-## Key Business Insights
-- Total sales for the most recent year of the dataset was approximately $371.2 million, about 24% higher than for the previous year
-- Total cars sold for the most recent year of the dataset was approximately 13.3 thousand, about 25% higher than for the previous year
-- Weekly sales generally increased as the year went on, peaking at approximately $14.6 million during the 36th week
-- Austin is the region with the most car sales with 2296 cars sold
-- A plurality of sales, approximately 47%, come from pale white cars
-
----
-## Dataset Notice
-This dashboard was created as a learning project using the dataset provided alongside the following tutorial:
-
-https://www.youtube.com/watch?v=XnPo5Ft7RzQ
-
-
---- 
 ## License
-Everything posted here is covered under the MIT license but the external dataset and the tutorial remain the property of their respective owners. 
-
----
-
-
+Repository additions are MIT licensed. External tutorial and dataset rights remain with their respective owners.
