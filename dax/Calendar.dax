@@ -1,9 +1,0 @@
-// Calculated table, then mark as a date table using Date.
-Calendar Table =
-ADDCOLUMNS(
-    CALENDAR(DATE(YEAR(MIN(car_data[Date])),1,1), DATE(YEAR(MAX(car_data[Date])),12,31)),
-    "Year", YEAR([Date]),
-    "Month Number", MONTH([Date]),
-    "Month", FORMAT([Date], "MMM"),
-    "Week", WEEKNUM([Date],1)
-)
