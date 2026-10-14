@@ -90,7 +90,6 @@ This dashboard was created as a learning project using the dataset provided alon
 
 https://www.youtube.com/watch?v=XnPo5Ft7RzQ
 
-The dataset and Power BI project file are not included in this repository because I do not own them and could not verify redistribution rights.
 
 --- 
 ## License
