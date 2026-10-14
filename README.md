@@ -1,100 +1,57 @@
-# 🚗 Car Sales Dashboard
+# Car Sales Analytics Dashboard
 
-![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
-![DAX](https://img.shields.io/badge/DAX-Time%20Intelligence-blue)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+## Overview
 
+An executive-style Power BI dashboard for exploring automotive sales performance through KPI reporting, trends, regional comparisons, and interactive filters.
 
----
-## Project Overview
-This project presents an executive-style Power BI dashboard for monitoring automotive sales performance. It combines KPI reporting, trend analysis, geographic visualization, and interactive filtering to support business decision-making.
+## Objective
 
+Monitor year-to-date (YTD) and month-to-date (MTD) sales, average prices, and cars sold. Compare performance across manufacturers, dealer regions, body styles, and colors.
 
----
-## Tech Stack
+## Data
 
-- Microsoft Power BI
-- DAX
-- Power Query
-- Data Modeling
+The repository includes [the Excel dataset](Car%20Sales..xlsx) supplied alongside [the original tutorial](https://www.youtube.com/watch?v=XnPo5Ft7RzQ). This is a learning project; the dataset and tutorial belong to their respective owners.
 
----
+## Approach
 
-## Dashboard Preview
+1. Prepare and transform sales data with Power Query.
+2. Build a data model and calendar table.
+3. Calculate time-based KPIs with DAX, including `TOTALYTD()`, `TOTALMTD()`, and `SAMEPERIODLASTYEAR()`.
+4. Present trends, regional sales, and manufacturer comparisons with interactive slicers.
 
-![Dashboard](Car-Sales-Dashboard.png)
+## Results
 
+Reported findings for the most recent year in the dataset:
 
----
-## Dashboard Objectives
-- Monitor Year-to-Date (YTD) sales performance
-- Compare Month-to-Date (MTD) and YTD metrics
-- Analyze weekly sales trends
-- Analyze sales performance by body style and color
-- Evaluate dealer performance by region
-- Explore sales interactively using slicers
+- Sales totaled approximately **$371.2 million**, about **24%** above the previous year.
+- Approximately **13.3 thousand cars** were sold, about **25%** above the previous year.
+- Weekly sales peaked at approximately **$14.6 million** in week 36.
+- Austin led regional car sales with **2,296 cars sold**.
+- Pale white cars accounted for approximately **47%** of sales.
 
---- 
-## Dashboard Features
-### KPI Cards
-- YTD Total Sales
-- YTD Average Price
-- YTD Cars Sold
-- MTD Total Sales
-- MTD Average Price
-- MTD Cars Sold
-### Visualizations
-- Weekly Sales Trend
-- Sales by Body Style
-- Sales by Color
-- Dealer Car Sales by Region
-- Manufacturer Sales Performance Table
-### Interactive Filters
-- Engine
-- Body Style
-- Dealer Name
-- Year
-- Model
+![Car sales dashboard](Car-Sales-Dashboard.png)
 
----
-## Skills Demonstrated
-- Power BI Dashboard Design
-- DAX Time Intelligence
-- Data Modeling
-- Calendar Tables
-- KPI Development
-- Interactive Reporting
-- Business Intelligence
-- Data Visualization
+The dashboard includes YTD and MTD KPI cards, weekly sales trends, body-style and color breakdowns, a regional view, and a manufacturer performance table. Slicers cover engine, body style, dealer, year, and model.
 
----
-## DAX Concepts Used
-- TOTALYTD()
-- TOTALMTD()
-- SAMEPERIODLASTYEAR()
-- Condtional Formatting
-- Time Intelligence
-- Calendar Table
+## Tools
 
----
-## Key Business Insights
-- Total sales for the most recent year of the dataset was approximately $371.2 million, about 24% higher than for the previous year
-- Total cars sold for the most recent year of the dataset was approximately 13.3 thousand, about 25% higher than for the previous year
-- Weekly sales generally increased as the year went on, peaking at approximately $14.6 million during the 36th week
-- Austin is the region with the most car sales with 2296 cars sold
-- A plurality of sales, approximately 47%, come from pale white cars
+Microsoft Power BI Desktop, Power Query, DAX, and data modeling.
 
----
-## Dataset Notice
-This dashboard was created as a learning project using the dataset provided alongside the following tutorial:
+## How to Run
 
-https://www.youtube.com/watch?v=XnPo5Ft7RzQ
+1. Clone or download this repository.
+2. Open [`Cars Sales Dashboard.pbix`](Cars%20Sales%20Dashboard.pbix) in Power BI Desktop.
+3. If a refresh cannot find the source workbook, update the Excel source path in Power Query to your local [`Car Sales..xlsx`](Car%20Sales..xlsx).
+4. Refresh the data and use the slicers to explore the report.
 
+For a quick preview without Power BI, open [the dashboard image](Car-Sales-Dashboard.png).
 
---- 
+## Limitations and Next Steps
+
+- The insights describe the supplied learning dataset and its historical period.
+- Dashboard comparisons depend on the selected filters and date context.
+- Future work could extend the report with profitability metrics or additional reporting periods.
+
 ## License
-Everything posted here is covered under the MIT license but the external dataset and the tutorial remain the property of their respective owners. 
 
----
-
-
+Repository content is covered by [the MIT license](LICENSE). The external dataset and tutorial retain their respective owners' rights.
